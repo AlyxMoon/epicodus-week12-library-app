@@ -1,0 +1,31 @@
+@using Library.ViewModels
+@model LoginViewModel
+@{
+  Layout = "_Layout";
+}
+
+<h2>Log in</h2>
+
+<form asp-controller="Account" asp-action="Login">
+  <div class="row mb-2">
+    <label 
+      class="col-sm-2 col-form-label" 
+      asp-for="Username"
+    ></label>
+    <div class="col-sm-10">
+      <input class="form-control" asp-for="Username" />
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <label 
+      class="col-sm-2 col-form-label" 
+      asp-for="Password"
+    ></label>
+    <div class="col-sm-10">
+      <input class="form-control" asp-for="Password" />
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Log In</button>
+</form>

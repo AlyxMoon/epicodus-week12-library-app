@@ -39,7 +39,7 @@ namespace Library.Controllers
     {
       ApplicationUser user = new () { 
         Email = model.Email,
-        UserName = model.UserName 
+        UserName = model.Username 
       };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
 
@@ -54,12 +54,11 @@ namespace Library.Controllers
     [HttpPost]
     public async Task<ActionResult> Login(LoginViewModel model)
     {
-      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, isPersistent: true, lockoutOnFailure: false);
       
       return result.Succeeded ? RedirectToAction("Index") : View();
     }
 
-    [HttpPost]
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();

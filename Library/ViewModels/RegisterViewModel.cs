@@ -11,8 +11,8 @@ namespace Library.ViewModels
         public string Email { get; set; }
 
         [Required]
-        [DisplayName("UserName")]
-        public string UserName { get; set; }
+        [DisplayName("Username")]
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
