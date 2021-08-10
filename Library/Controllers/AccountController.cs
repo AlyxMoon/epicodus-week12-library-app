@@ -24,11 +24,6 @@ namespace Library.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
-    {
-      return View();
-    }
-
     public IActionResult Register()
     {
       return View();
@@ -56,13 +51,13 @@ namespace Library.Controllers
     {
       Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, isPersistent: true, lockoutOnFailure: false);
       
-      return result.Succeeded ? RedirectToAction("Index") : View();
+      return result.Succeeded ? RedirectToAction("Index", "Home") : View();
     }
 
     public async Task<ActionResult> LogOff()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }
