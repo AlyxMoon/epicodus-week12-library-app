@@ -21,16 +21,23 @@
       <tr>
         <td>
           <a
-            asp-controller="Book"
+            asp-controller="Books"
             asp-action="Details"
-            asp-route-bookId="@book.BookId"
+            asp-route-id="@book.BookId"
             class="btn btn-secondary btn-sm"
           >See Details</a>
 
           <a
-            asp-controller="Book"
+            asp-controller="Books"
+            asp-action="Edit"
+            asp-route-id="@book.BookId"
+            class="btn btn-secondary btn-sm"
+          >Edit</a>
+
+          <a
+            asp-controller="Books"
             asp-action="Remove"
-            asp-route-bookId="@book.BookId"
+            asp-route-id="@book.BookId"
             class="btn btn-danger btn-sm"
           >Delete</a>
         </td>

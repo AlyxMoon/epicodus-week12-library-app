@@ -1,1 +1,64 @@
-todo
+@model Library.Models.Author
+
+<section class="card my-3">
+  <div class="card-header">
+    <h2 class="card-title">Create a new author</h2>
+  </div>
+
+  <div class="card-body">
+    <form 
+      asp-controller="Authors"
+      asp-action="Edit"
+      asp-route-id="@Model.AuthorId"
+    >
+      <input type="hidden" asp-for="AuthorId" />
+
+      <div class="row mb-3">
+        <label 
+          asp-for="Name"
+          class="col-sm-2 col-form-label"
+        ></label>
+        <div class="col-sm-10">
+          <input 
+            asp-for="Name"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label 
+          asp-for="Genre"
+          class="col-sm-2 col-form-label"
+        ></label>
+        <div class="col-sm-10">
+          <input 
+            asp-for="Genre"
+            class="form-control"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label 
+          asp-for="Description"
+          class="col-sm-2 col-form-label"
+        ></label>
+        <div class="col-sm-10">
+          <textarea 
+            asp-for="Description"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+      </div>
+
+      <button 
+        type="submit"
+        class="btn btn-primary"
+      >Edit Author</button>
+    </form>
+  </div>
+</section>
