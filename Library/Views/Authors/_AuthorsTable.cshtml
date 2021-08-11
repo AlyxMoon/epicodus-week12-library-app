@@ -1,0 +1,42 @@
+@using Library.Models
+@model System.Collections.Generic.List<Author>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Preferred Genre</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @if (Model.Count == 0)
+    {
+      <tr><td colspan="3">No authors yet, go add some!</td></tr>
+    }
+    
+    @foreach (Author author in Model)
+    {
+      <tr>
+        <td>
+          <a
+            asp-controller="Author"
+            asp-action="Details"
+            asp-route-bookId="@author.AuthorId"
+            class="btn btn-secondary btn-sm"
+          >See Details</a>
+
+          <a
+            asp-controller="Author"
+            asp-action="Remove"
+            asp-route-bookId="@author.AuthorId"
+            class="btn btn-danger btn-sm"
+          >Delete</a>
+        </td>
+        <td>@author.Name</td>
+        <td>@author.Genre</td>
+      </tr>
+    }
+  </tbody>
+</table>

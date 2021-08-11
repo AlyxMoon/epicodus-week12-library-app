@@ -1,0 +1,42 @@
+@using Library.Models
+@model System.Collections.Generic.List<Book>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Dewey #</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @if (Model.Count == 0)
+    {
+      <tr><td colspan="3">No Books yet, go add some!</td></tr>
+    }
+    
+    @foreach (Book book in Model)
+    {
+      <tr>
+        <td>
+          <a
+            asp-controller="Book"
+            asp-action="Details"
+            asp-route-bookId="@book.BookId"
+            class="btn btn-secondary btn-sm"
+          >See Details</a>
+
+          <a
+            asp-controller="Book"
+            asp-action="Remove"
+            asp-route-bookId="@book.BookId"
+            class="btn btn-danger btn-sm"
+          >Delete</a>
+        </td>
+        <td>@book.Name</td>
+        <td>@book.DeweyDecimal</td>
+      </tr>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,5 @@
+@using Library.Models
+@model System.Collections.Generic.List<Author>
+
+<partial name="_FormAddNew" model="new Author()" />
+<partial name="_AuthorsTable" model="@Model" />
